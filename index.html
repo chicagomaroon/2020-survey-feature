@@ -1,3 +1,6 @@
+<!--Adapting from Euirim Choi's feature code  -->
+<!--All additional code added by Juliette Hainline -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,218 +8,421 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="http://chicagomaroon.github.io/img/favicon.png">
-    <meta name="description" content="Class of 2020">
-    <meta name="producer" content="Vishal">
-    <meta property="og:url" content="http://chicagomaroon.github.io/dalniente/" />
-    <meta property="og:title" content="Class of 2020" />
-    <meta property="og:description" content="Class of 2020" />
-    <meta property="og:image" content="https://visit.uchicago.edu/sites/visit.uchicago.edu/files/styles/slideshow-larger/public/uploads/images/athletic_fields.jpg?itok=7YP3G0mJ" />
-    <title>An Overview of the Class of 2020</title>
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type='text/css'>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Roboto|Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'>
-    <link href="http://chicagomaroon.github.io/styles/reset.css" rel="stylesheet" type='text/css'>
-    <link href="http://chicagomaroon.github.io/styles/base.css" rel="stylesheet" type='text/css'>
-    <link href="style.css" rel="stylesheet" type='text/css'>
+    <title>The Boys&#39; Club</title>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="http://maroon-prod.s3.amazonaws.com/static/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="http://maroon-prod.s3.amazonaws.com/static/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://maroon-prod.s3.amazonaws.com/static/favicons/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="http://maroon-prod.s3.amazonaws.com/static/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="http://maroon-prod.s3.amazonaws.com/static/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="http://maroon-prod.s3.amazonaws.com/static/favicons/manifest.json">
+    <link rel="mask-icon" href="http://maroon-prod.s3.amazonaws.com/static/favicons/safari-pinned-tab.svg" color="#5bbdd9">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-TileImage" content="http://maroon-prod.s3.amazonaws.com/static/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="http://maroon-prod.s3.amazonaws.com/static/css/bootstrap.css?1471812538" rel="stylesheet">
+    <link href="http://maroon-prod.s3.amazonaws.com/static/css/main.css?1471812538" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <script src="http://maroon-prod.s3.amazonaws.com/static/js/bootstrap.min.js?1471812538"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7250934/7584152/css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+
+    <meta property="og:url" content="/article/2016/6/2/slug-automatically-generated/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The Boys&#39; Club" />
+    <meta property="og:description" content="“In the physics department, there are just as many professors named ‘David’ as there are female professors.&quot;" />
+    <meta property="og:image" content="" />
+
 </head>
 
 <body>
-    <script>
-        <!-- Enables Facebook SDK, more FB scripts in main.js -->
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '1584750855103746',
-                xfbml: true,
-                version: 'v2.2'
-            });
-        };
 
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
+    <script>
+        $(window).scroll(function() {
+            if ($(window).scrollTop() >= 75) {
+                $('.navbar').addClass('navbar-shadow');
+            } else {
+                $('.navbar').removeClass('navbar-shadow');
             }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        });
+
+        $(document).ready(function() {
+            $("#search-trigger").click(function() {
+                $("#search-trigger").remove();
+                $("#search-form").removeClass("invisible");
+                $("#viewpoints-left").addClass("invisible");
+                $("#right-nav ul").prepend("<li><a href='/viewpoints'><small>VIEWPOINTS</small></a></li>");
+                $("#news-left").css("margin-left", "-20px");
+                if ($(window).width() < 1024) {
+                    $("#brand").remove();
+                }
+            });
+        });
     </script>
-    <div class="navbar navbar-default navbar-fixed-top">
+
+    <script>
+        $(document).ready(function() {
+            var winheight = $(window).height().toString();
+            $(".feature-img-fill").css("height", winheight);
+        });
+    </script>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <!-- Sets the header on left as Chicago Maroon -->
-                <a class="navbar-brand" href="http://www.chicagomaroon.com/">
-                    <img alt="The Chicago Maroon Logo" class='logo' src="http://chicagomaroon.github.io/img/maroon-logo.png">
-                </a>
-            </div>
-            <!-- Facebook Share Icon  -->
-            <div class="social-icon-container fb right">
-                <a id="fb-icon" class="social-icon right" target="_blank" href="#">
-                    <img class="logo" src="http://chicagomaroon.github.io/img/fb-logo.png" />
-                </a>
-            </div>
-            <!-- Twitter Share Icon -->
-            <div class="social-icon-container twitter right">
-                <a id="twitter-icon" class="social-icon right tweet" target="_blank" href="http://chicagomaroon.github.io/whpk" title="An Overview of the Class of 2020">
-                    <img class="logo" src="http://chicagomaroon.github.io/img/twitter-logo.png" />
-                </a>
-            </div>
-            <!-- Jumps to comment section -->
-            <div class="social-icon-container comments right">
-                <a id='comments' class="disqus-comment-count social-icon right logo" data-disqus-url="http://example.com/article1.html" href='#comment'>
-                    <i class="fa fa-comment fa-lg logo"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class='container'>
-        <div class='container'>
-            <div class='row'>
-                <div class='col-xs-12 fullscreen-picture'>
-                    <div class='push-down'>
-                        <div class='col-xs-12 text-background'>
-                            <!-- specified height for WINDOW ADD IT -->
-                            <div class='col-xs-12 section-container'>
-                                <span class='section-link'><a href="http://chicagomaroon.com/category/features/" target="new">Features</a></span>
-                            </div>
-                            <h1 class='title'>An Overview of the Class of 2020</h1>
-                            <!-- <h2 class='subtitle'>[subtitle]</h2> -->
-                            <h3 class='authors'>Content Produced by
-                  <span class="name"><a href="INSERT LINK HERE/" target="new">Vishal</a></span> | Produced by
-                  <span class="name"><a href="[producer link]" target="new">Juliette Hainline</a></span> | INSERT DATE HERE
-                </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='credit photo-credit cover-photo'>INSERT NAME HERE//<em>Chicago Maroon</em>
-            </div>
-        </div>
-    </div>
-    <!-- Thanks https://codepen.io/davidcochran/pen/rcHae -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#right-nav" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a id="brand" href="/"><img src="http://maroon-prod.s3.amazonaws.com/static/img/logo_sm-01.png" width=2 00/></a>
             </div>
+            <!-- Navbar header-->
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="top-navbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="#demographics">Demographics</a></li>
-                    <li><a href="#experiences">Experiences</a></li>
-                    <li><a href="#family">Family</a></li>
-                    <li><a href="#application">College Application</a></li>
-                    <li><a href="#plans">Plans at UChicago</a></li>
-                </ul>
+
+            <div class="collapse navbar-collapse navbar-left">
+                <form class="navbar-form navbar-left invisible" role="search" method="GET" action="/search/" id="search-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="SEARCH" name="query" />
+                        <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><small><i class="fa fa-search"></i></small></button>
+                            </span>
+                    </div>
+                </form>
+                <form class="navbar-left navbar-form">
+                    <button class="btn btn-default" id="search-trigger" type="button">
+                        <small><i class="fa fa-search"></i></small>
+                    </button>
+                </form>
+                <div class="navbar-collapse navbar-right" id="left-nav">
+                    <ul class="nav navbar-nav">
+                        <li id="news-left"><a href="/news"><small>NEWS</small></a></li>
+                        <li id="viewpoints-left"><a href="/viewpoints"><small>VIEWPOINTS</small></a></li>
+                    </ul>
+                </div>
             </div>
             <!-- /.navbar-collapse -->
+
+
+            <div class="collapse navbar-collapse navbar-right" id="right-nav">
+                <ul class="nav navbar-nav">
+                    <li id="news-left" class="visible-xs"><a href="/news"><small>NEWS</small></a></li>
+                    <li id="viewpoints-left" class="visible-xs"><a href="/viewpoints"><small>VIEWPOINTS</small></a></li>
+                    <li><a href="/sports"><small>SPORTS</small></a></li>
+                    <li><a href="/arts"><small>ARTS</small></a></li>
+                    <li><a href="/greycity"><small>GREY CITY</small></a></li>
+                </ul>
+                <a id="brand-search" class="invisible" href="/"><img src="http://maroon-prod.s3.amazonaws.com/static/img/logo_lg.png" width=2 00/></a>
+            </div>
+
         </div>
-        <!-- /.container-fluid -->
     </nav>
-    <div class = 'row'>
-      <section id = "demographics">
-          <div class='col-lg-offset-3 col-lg-5 col-md-offset-2 col-md-6 col-sm-offset-3 col-sm-7 col-xs-12'>
-            <p class='text body-text'>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              </p>
-          </div>
-        </section>
-    </div>
-    <div class = 'row'>
-        <section id = "experiences">
-          <div class='col-lg-offset-3 col-lg-5 col-md-offset-2 col-md-6 col-sm-offset-3 col-sm-7 col-xs-12'>
-            <p class='text body-text'>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              </p>
-          </div>
-        </section>
-    </div>
-    <div class = 'row'>
-        <section id = "family">
-          <div class='col-lg-offset-3 col-lg-5 col-md-offset-2 col-md-6 col-sm-offset-3 col-sm-7 col-xs-12'>
-            <p class='text body-text'>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              </p>
-          </div>
-        </section>
-    </div>
-    <div class = 'row'>
-        <section id = "applications">
-          <div class='col-lg-offset-3 col-lg-5 col-md-offset-2 col-md-6 col-sm-offset-3 col-sm-7 col-xs-12'>
-            <p class='text body-text'>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              </p>
-          </div>
-        </section>
-    </div>
-    <div class = 'row'>
-        <section id = "plans">
-          <div class='col-lg-offset-3 col-lg-5 col-md-offset-2 col-md-6 col-sm-offset-3 col-sm-7 col-xs-12'>
-            <p class='text body-text'>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-              </p>
-          </div>
-        </section>
-    </div>
-    <div id="disqus_thread" class='col-lg-offset-2 col-lg-7 col-md-offset-2 col-md-7 col-sm-offset-2 col-sm-9 col-xs-12'>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES * * */
-            var disqus_shortname = 'chicagomarooninteractive';
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
+    <div id="feature-img-fill-wrapper">
+        <div class="feature-img-fill" style="background-color:#b81c32;">
+            <div class="feature-img-gradient">
+                <div class="feature-img-fill-content">
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+                            <h1 class="media-heading">The Boys&#39; Club</h1>
+                            <h4 class="serif">“In the physics department, there are just as many professors named ‘David’ as there are female professors.&quot;</h4>
+                            <div class="divider"></div>
+                            <h4 class="text-white">
+                <span class = "sans-serif blurb-author">
+                    By
+                    <span class = ""><a href = "/contributor/wendy-lee/" class = "plain-link"><strong>Wendy Lee</strong></a></span>
+                </span>
+        </h4>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="container-main">
+
+        <!-- Load Facebook SDK for JavaScript -->
+        <div class="row" style="margin-top:-35px;">
+            <div class="col-md-offset-1 col-md-10 col-sm-12">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <p class="text-muted zero-margin" style="margin-top:0px;"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="h-line divider"></div>
+            </div>
+            <div class="col-md-offset-1 col-md-10 col-sm-12">
+                <div class="row">
+                    <div class="col-sm-8 col-xs-6">
+                        <h5 class="section-header inline">GREY CITY</h5>
+                        <p class="inline">&nbsp;&nbsp;/&nbsp;&nbsp;</p>
+
+                        <h5 class="section-header inline FEATURE"><span
+                        class="label label-danger">FEATURE</span></h5>
+                        <p class="inline">&nbsp;&nbsp;/&nbsp;&nbsp;</p>
+
+                        <p class="inline sans-serif text-danger">June 2, 2016</p>
+                    </div>
+                    <div class="col-sm-4 col-xs-6">
+                        <h5 class="text-right big-icon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=/article/2016/6/2/slug-automatically-generated/&title=The Boys&#39; Club">
+                        <i class = "fa fa-facebook-square"></i>
+                    </a>
+                    <a
+                        href="http://twitter.com/intent/tweet?status=The Boys&#39; Club+/article/2016/6/2/slug-automatically-generated/">
+                        <i class = "fa fa-twitter-square"></i>
+                    </a>
+                    <a
+                        href="http://www.linkedin.com/shareArticle?mini=true&url=/article/2016/6/2/slug-automatically-generated/&title=The Boys&#39; Club&source=http://www.chicagomaroon.com">
+                        <i class = "fa fa-linkedin-square"></i>
+                    </a>
+                </h5>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wrapper">
+                <div class="col-sm-12">
+                    <div class="h-line divider"></div>
+                </div>
+                <div class = "sidebar">
+                    <ul>
+                        <li><a href="#demographics">Demographics</a></li>
+                        <li><a href="#experiences">Experiences</a></li>
+                        <li><a href="#family">Family</a></li>
+                        <li><a href="#applications">College Application</a></li>
+                        <li><a href="#plans">Plans at UChicago</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-offset-1 col-md-10 col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 article-content">
+                            <p style="text-align:left"><em>&ldquo;Many STEM disciplines are still a boys&rsquo; club, and if people keep pointing to men as examples of success, it&rsquo;s hard to imagine yourself being in that field. There is definitely still a gender imbalance, but even though that gender imbalance may be conducive to certain biases and&nbsp;behaviors&nbsp;going unchecked, it&rsquo;s definitely my hope that, in our&nbsp;case, we have lessened this effect to some extent.&rdquo; </em></p>
+
+                            <p style="text-align:left"><em>&mdash;Borja Sotomayor,&nbsp;</em><em>Senior Lecturer in the Department of Computer Science</em></p>
+
+                            <section id = "demographics">
+                              <p><strong>Demographics</strong></p>
+                              <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                              </p>
+
+                              <!-- Add Highcharts Graph -->
+
+                              <p>
+                                  <iframe align="left" frameborder="0" height="650" scrolling="no" src="https://plot.ly/~juliettehainline/15.embed?link=false" width="100%"></iframe>
+                              </p>
+                            </section>
+
+                            <section id = "experiences">
+                              <p><strong>Experiences</strong></p>
+                              <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                              </p>
+
+                              <!-- Add Highcharts Graph -->
+
+                              <p>
+                                  <iframe align="left" frameborder="0" height="650" scrolling="no" src="https://plot.ly/~juliettehainline/15.embed?link=false" width="100%"></iframe>
+                              </p>
+                            </section>
+
+                            <section id = "family">
+                              <p><strong>Family</strong></p>
+                              <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                              </p>
+
+                              <!-- Add Highcharts Graph -->
+
+                              <p>
+                                  <iframe align="left" frameborder="0" height="650" scrolling="no" src="https://plot.ly/~juliettehainline/15.embed?link=false" width="100%"></iframe>
+                              </p>
+                            </section>
+
+                            <section id = "applications">
+                              <p><strong>Applications</strong></p>
+                              <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                              </p>
+
+                              <!-- Add Highcharts Graph -->
+
+                              <p>
+                                  <iframe align="left" frameborder="0" height="650" scrolling="no" src="https://plot.ly/~juliettehainline/15.embed?link=false" width="100%"></iframe>
+                              </p>
+                            </section>
+
+                            <section id = "plans">
+                              <p><strong>Plans</strong></p>
+                              <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                              </p>
+
+                              <!-- Add Highcharts Graph -->
+
+                              <p>
+                                  <iframe align="left" frameborder="0" height="650" scrolling="no" src="https://plot.ly/~juliettehainline/15.embed?link=false" width="100%"></iframe>
+                              </p>
+                            </section>
+
+                            <div class="d-line divider"></div>
+
+                            <div id="disqus_thread"></div>
+                            <script>
+                                /**
+                                 * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                 * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                                 */
+                                /*
+                                var disqus_config = function () {
+                                    this.page.url = /article/2016/6/2/slug-automatically-generated/; // Replace PAGE_URL with your page's canonical URL variable
+                                    this.page.identifier = 20435; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                };
+                                */
+                                (function() { // DON'T EDIT BELOW THIS LINE
+                                    var d = document,
+                                        s = d.createElement('script');
+
+                                    s.src = '//bourassa.disqus.com/embed.js';
+
+                                    s.setAttribute('data-timestamp', +new Date());
+                                    (d.head || d.body).appendChild(s);
+                                })();
+                            </script>
+                            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script id="dsq-count-scr" src="//bourassa.disqus.com/count.js" async></script>
+        <script>
+            function asyncImgLoad(url) {
+                alert("hello!");
+                this.style.backgroundImage = "url('" + url + "')";
+            }
         </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
-        </noscript>
+
+        <!-- footer -->
+        <div class="footer">
+            <div class="d-line divider"></div>
+            <div class="row flex">
+                <div class="col-sm-3 col-xs-6">
+                    <br/>
+                    <img src="http://maroon-prod.s3.amazonaws.com/static/img/logo_sm-01.png" class="img-responsive" />
+                    <p class="serif
+                            text-muted">The independent student newspaper of The University of Chicago since 1892.</p>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <ul class="footer-list">
+                        <li>
+                            <h5 class="topic-header">SECTIONS</h5></li>
+                        <li>
+                            <small><a class="sans-serif" href="/news">NEWS</a></small>
+                        </li>
+                        <li>
+                            <small><a class="sans-serif" href="/viewpoints">VIEWPOINTS</a></small>
+                        </li>
+                        <li>
+                            <small><a class="sans-serif" href="/sports">SPORTS</a></small>
+                        </li>
+                        <li>
+                            <small><a class="sans-serif" href="/arts">ARTS</a></small>
+                        </li>
+                        <li>
+                            <small><a class="sans-serif"
+                                        href="/greycity">GREY CITY</a></small>
+                        </li>
+                        <li>
+                            <small><a class="sans-serif"
+                                        href="/features">FEATURES</a></small>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-3 section-border col-xs-6">
+                    <ul class="footer-list">
+
+                        <li>
+                            <h5 class="topic-header">ABOUT</h5></li>
+
+                        <li>
+                            <small><a class="sans-serif"
+                                        href="/pages/staff/">STAFF</a></small>
+                        </li>
+
+                        <li>
+                            <small><a class="sans-serif"
+                                        href="/pages/advertise/">ADVERTISE</a></small>
+                        </li>
+
+                        <li>
+                            <small><a class="sans-serif"
+                                        href="/pages/legal/">LEGAL</a></small>
+                        </li>
+
+                        <li>
+                            <small><a class="sans-serif"
+                                        href="/pages/policies/">POLICIES</a></small>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <ul class="footer-list">
+
+                        <li>
+                            <h5 class="topic-header">CONTACT</h5></li>
+
+                        <li>
+                            <small><a class="sans-serif" href="/pages/apply/">
+                                    APPLY</a></small>
+                        </li>
+
+                        <li>
+                            <small><a class="sans-serif" href="/pages/subissions/">
+                                    SUBMISSIONS</a></small>
+                        </li>
+
+                        <li>
+                            <small><a class="sans-serif" href="/pages/subscribe/">
+                                    SUBSCRIBE</a></small>
+                        </li>
+
+                        <li>
+                            <small><a class="sans-serif" href="/pages/corrections/">
+                                    CORRECTIONS</a></small>
+                        </li>
+
+                        <li>
+                            <small><a class="sans-serif" href="/pages/donate/">
+                                    DONATE</a></small>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="divider h-line"></div>
+            <p class="sans-serif text-muted">&copy; 2016 The Chicago Maroon. Designed & built by Euirim Choi '19.</p>
+        </div>
     </div>
-    <a id='comment'></a>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES * * */
-        var disqus_shortname = 'chicagomarooninteractive';
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src="http://code.jquery.com/color/jquery.color-2.1.0.js"></script>
-<script src='scripts.js'></script>
-<script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-59818592-4', 'auto');
-    ga('send', 'pageview');
-</script>
 </html>
