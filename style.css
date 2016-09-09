@@ -1,12 +1,32 @@
+/*#wrapper {
+  display: flex;
+}*/
+
+.sidebar {
+	width: 200px; /* Replace with your sidebar width */
+	float: left;
+  position: sticky;
+}
+
 ul {
   list-style-type: none;
 }
 
-.sidebar {
-	width: 300px; /* Replace with your sidebar width */
-	float: left;
-	position: relative;
+li {
+  padding-bottom: 5px;
+  font-family: sans-serif;
 }
-.scrollingBox {
-	width: 300px; /* Replace with the same width as sidebar */
+
+.sidebar a:hover{
+    color:#bd1e2d!important;
+    text-decoration: none;
+}
+
+.article-content {
+  padding-left: 200px !important;
+  /*width: calc(100% - 200px) !important;*/
+}
+
+#demographics {
+  background-color: blue !important;
 }
