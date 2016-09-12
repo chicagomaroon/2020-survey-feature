@@ -24,9 +24,4 @@ li {
 
 .article-content {
   padding-left: 200px !important;
-  /*width: calc(100% - 200px) !important;*/
-}
-
-#demographics {
-  background-color: blue !important;
 }
