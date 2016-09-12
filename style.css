@@ -3,6 +3,7 @@
 }*/
 
 .sidebar {
+	padding-top: 20px;
 	width: 200px; /* Replace with your sidebar width */
 	float: left;
   position: sticky;
