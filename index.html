@@ -29,9 +29,7 @@
     <script src="http://maroon-prod.s3.amazonaws.com/static/js/bootstrap.min.js?1471812538"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7250934/7584152/css/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="scripts.js"></script>
     <script src="highchartstheme.js"></script>
     <script src="graphs.js"></script>
 
@@ -77,23 +75,85 @@
     </script>
 
     <script>
-    /* Thanks https://css-tricks.com/scrollfollow-sidebar/ */
-    $(function() {
-        var offset = $("#sidebar").offset();
-        var topPadding = 0;
-        $(window).scroll(function() {
-            if ($(window).scrollTop() > offset.top) {
-                $("#sidebar").stop().animate({
-                    marginTop: $(window).scrollTop() - offset.top + topPadding
+        $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+                // var offset = -60;
+                var target = this.hash;
+                var $target = $(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top - 45
+                }, 900, 'swing', function() {
+                    window.location.hash = target;
                 });
-            } else {
-                $("#sidebar").stop().animate({
-                    marginTop: 0
-                });
-            };
+            });
         });
-    });
-</script>
+    </script>
+
+    <script>
+        /* Thanks https://css-tricks.com/scrollfollow-sidebar/ */
+        $(function() {
+            var offset = $("#sidebar").offset();
+            var topPadding = 0;
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > offset.top) {
+                    $("#sidebar").stop().animate({
+                        marginTop: $(window).scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $("#sidebar").stop().animate({
+                        marginTop: 0
+                    });
+                };
+            });
+        });
+    </script>
+
+    <style>
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      padding-bottom: 5px;
+      font-family: sans-serif;
+    	text-transform: uppercase;
+    }
+
+    ul a {
+    	color: #515756!important;
+    }
+
+    ul a:hover{
+        color:#bd1e2d!important;
+        text-decoration: none;
+    }
+
+    section {
+    	padding-top: 10px !important;
+    	padding-bottom: 10px;
+    }
+
+    .nav-tabs {
+    	padding-top: 10px !important;
+      font-size: 16px;
+    }
+
+    #sidebar {
+    	padding-top: 200px;
+    	font-size: 16px;
+      width: inherit;
+      position: absolute;
+      margin-left: 0px;
+    }
+
+    .article-content {
+    	padding-left: 100px;
+    }
+
+    </style>
+
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -222,31 +282,33 @@
             <div id="wrapper container">
                 <div class="col-sm-12">
                     <div class="h-line divider"></div>
-            </div>
+                </div>
                 <div class="page-wrap">
-                <div id="sidebar">
+                    <div id="sidebar" class="hidden-xs">
 
-      <ul>
-        <li><a href="#intro">Intro</a></li>
-        <li><a href="#demographics">Demographics</a></li>
-        <li><a href="#experiences">Experiences</a></li>
-        <li><a href="#family">Family</a></li>
-        <li><a href="#applications">College Application</a></li>
-        <li><a href="#plans">Plans at UChicago</a></li>
-</ul>
-    </div>
+                        <ul>
+                            <li><a href="#intro">Intro</a></li>
+                            <li><a href="#demographics">Demographics</a></li>
+                            <li><a href="#experiences">Experiences</a></li>
+                            <li><a href="#family">Family</a></li>
+                            <li><a href="#applications">Application Process</a></li>
+                            <li><a href="#plans">Plans at UChicago</a></li>
+                        </ul>
+                    </div>
                     <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 article-content">
+                        <div class="col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-3 article-content">
                             <!-- <section id="intro"> -->
-                                <h2><span id = "intro"></span>Intro</h2>
+                            <section id="intro">
+                                <h2>Intro</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
                                     survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
                                     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 </p>
-                            <!-- </section> -->
+                            </section>
 
-                                <h2><span id="demographics"></span>Demographics</h2>
+                            <section id="demographics">
+                                <h2>Demographics</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
                                     survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
@@ -285,47 +347,49 @@
                                     </div>
                                 </div>
 
+                            </section>
 
-                            <!-- <section id="experiences"> -->
-                                <h2><span id = "#experiences"></span>Experiences</h2>
+
+                            <section id="experiences">
+                                <h2>Experiences</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
                                     survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
                                     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 </p>
 
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" data-toggle="tab" href="#graph1tab" role="tab">Graph 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#graph2tab" role="tab">Graph 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#graph3tab" role="tab">Graph 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#graph4tab" role="tab">Graph 4</a>
-                                    </li>
-                                </ul>
+                                <!-- <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item active">
+                                    <a class="nav-link" data-toggle="tab" href="#graph1tab" role="tab">Graph 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#graph2tab" role="tab">Graph 2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#graph3tab" role="tab">Graph 3</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#graph4tab" role="tab">Graph 4</a>
+                                </li>
+                            </ul> -->
 
                                 <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="graph1tab" role="tabpanel">
-                                        <div id="graph1" style="width:inherit !important; height:400px;"></div>
-                                    </div>
-                                    <div class="tab-pane" id="graph2tab" role="tabpanel">
-                                        <div id="graph2" style="width:inherit; height:400px;"></div>
-                                    </div>
-                                    <div class="tab-pane" id="graph3tab" role="tabpanel">
-                                        <div id="graph3" style="width:inherit; height:400px;"></div>
-                                    </div>
-                                    <div class="tab-pane" id="graph4tab" role="tabpanel">
-                                        <div id="graph4" style="width:inherit; height:400px;"></div>
-                                    </div>
+                                <!-- <div class="tab-content">
+                                <div class="tab-pane active" id="graph1tab" role="tabpanel">
+                                    <div id="graph1" style="width:inherit !important; height:400px;"></div>
                                 </div>
+                                <div class="tab-pane" id="graph2tab" role="tabpanel">
+                                    <div id="graph2" style="width:inherit; height:400px;"></div>
+                                </div>
+                                <div class="tab-pane" id="graph3tab" role="tabpanel">
+                                    <div id="graph3" style="width:inherit; height:400px;"></div>
+                                </div>
+                                <div class="tab-pane" id="graph4tab" role="tabpanel">
+                                    <div id="graph4" style="width:inherit; height:400px;"></div>
+                                </div>
+                            </div> -->
 
-                            <!-- </section> -->
+                            </section>
 
                             <section id="family">
                                 <h2>Family</h2>
@@ -337,18 +401,18 @@
 
                                 <!-- Add Highcharts Graph -->
 
-                                <div id="graph3" style="width:100%; height:400px;"></div>
+                                <!-- <div id="graph3" style="width:100%; height:400px;"></div> -->
                             </section>
 
                             <section id="applications">
-                                <h2>Applications</h2>
+                                <h2>Application Process</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
                                     survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
                                     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 </p>
 
-                                <ul class="nav nav-tabs" role="tablist">
+                                <!-- <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item active">
                                         <a class="nav-link" data-toggle="tab" href="#graph1tab" role="tab">Graph 1</a>
                                     </li>
@@ -361,10 +425,10 @@
                                     <li class="nav-item">
                                         <a class="nav-link" data-toggle="tab" href="#graph4tab" role="tab">Graph 4</a>
                                     </li>
-                                </ul>
+                                </ul> -->
 
                                 <!-- Tab panes -->
-                                <div class="tab-content">
+                                <!-- <div class="tab-content">
                                     <div class="tab-pane active" id="graph1tab" role="tabpanel">
                                         <div id="graph1" style="width:inherit !important; height:400px;"></div>
                                     </div>
@@ -377,19 +441,19 @@
                                     <div class="tab-pane" id="graph4tab" role="tabpanel">
                                         <div id="graph4" style="width:inherit; height:400px;"></div>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </section>
 
                             <section id="plans">
-                                <h2>Plans</h2>
+                                <h2>Plans at UChicago</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
                                     survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
                                     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                                 </p>
 
-                                <ul class="nav nav-tabs" role="tablist">
+                                <!-- <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item active">
                                         <a class="nav-link" data-toggle="tab" href="#graph1tab" role="tab">Graph 1</a>
                                     </li>
@@ -402,10 +466,10 @@
                                     <li class="nav-item">
                                         <a class="nav-link" data-toggle="tab" href="#graph4tab" role="tab">Graph 4</a>
                                     </li>
-                                </ul>
+                                </ul> -->
 
                                 <!-- Tab panes -->
-                                <div class="tab-content">
+                                <!-- <div class="tab-content">
                                     <div class="tab-pane active" id="graph1tab" role="tabpanel">
                                         <div id="graph1" style="width:inherit !important; height:400px;"></div>
                                     </div>
@@ -418,7 +482,7 @@
                                     <div class="tab-pane" id="graph4tab" role="tabpanel">
                                         <div id="graph4" style="width:inherit; height:400px;"></div>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </section>
 
@@ -453,119 +517,119 @@
                 </div>
             </div>
         </div>
-      </div>
-        <script id="dsq-count-scr" src="//bourassa.disqus.com/count.js" async></script>
-        <script>
-            function asyncImgLoad(url) {
-                alert("hello!");
-                this.style.backgroundImage = "url('" + url + "')";
-            }
-        </script>
+    </div>
+    <script id="dsq-count-scr" src="//bourassa.disqus.com/count.js" async></script>
+    <script>
+        function asyncImgLoad(url) {
+            alert("hello!");
+            this.style.backgroundImage = "url('" + url + "')";
+        }
+    </script>
 
-        <!-- footer -->
-        <div class="footer">
-            <div class="d-line divider"></div>
-            <div class="row flex">
-                <div class="col-sm-3 col-xs-6">
-                    <br/>
-                    <img src="http://maroon-prod.s3.amazonaws.com/static/img/logo_sm-01.png" class="img-responsive" />
-                    <p class="serif
+    <!-- footer -->
+    <div class="footer">
+        <div class="d-line divider"></div>
+        <div class="row flex">
+            <div class="col-sm-3 col-xs-6">
+                <br/>
+                <img src="http://maroon-prod.s3.amazonaws.com/static/img/logo_sm-01.png" class="img-responsive" />
+                <p class="serif
                             text-muted">The independent student newspaper of The University of Chicago since 1892.</p>
-                </div>
-                <div class="col-sm-3 col-xs-6">
-                    <ul class="footer-list">
-                        <li>
-                            <h5 class="topic-header">SECTIONS</h5></li>
-                        <li>
-                            <small><a class="sans-serif" href="/news">NEWS</a></small>
-                        </li>
-                        <li>
-                            <small><a class="sans-serif" href="/viewpoints">VIEWPOINTS</a></small>
-                        </li>
-                        <li>
-                            <small><a class="sans-serif" href="/sports">SPORTS</a></small>
-                        </li>
-                        <li>
-                            <small><a class="sans-serif" href="/arts">ARTS</a></small>
-                        </li>
-                        <li>
-                            <small><a class="sans-serif"
-                                        href="/greycity">GREY CITY</a></small>
-                        </li>
-                        <li>
-                            <small><a class="sans-serif"
-                                        href="/features">FEATURES</a></small>
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-sm-3 section-border col-xs-6">
-                    <ul class="footer-list">
-
-                        <li>
-                            <h5 class="topic-header">ABOUT</h5></li>
-
-                        <li>
-                            <small><a class="sans-serif"
-                                        href="/pages/staff/">STAFF</a></small>
-                        </li>
-
-                        <li>
-                            <small><a class="sans-serif"
-                                        href="/pages/advertise/">ADVERTISE</a></small>
-                        </li>
-
-                        <li>
-                            <small><a class="sans-serif"
-                                        href="/pages/legal/">LEGAL</a></small>
-                        </li>
-
-                        <li>
-                            <small><a class="sans-serif"
-                                        href="/pages/policies/">POLICIES</a></small>
-                        </li>
-
-
-                    </ul>
-                </div>
-                <div class="col-sm-3 col-xs-6">
-                    <ul class="footer-list">
-
-                        <li>
-                            <h5 class="topic-header">CONTACT</h5></li>
-
-                        <li>
-                            <small><a class="sans-serif" href="/pages/apply/">
-                                    APPLY</a></small>
-                        </li>
-
-                        <li>
-                            <small><a class="sans-serif" href="/pages/subissions/">
-                                    SUBMISSIONS</a></small>
-                        </li>
-
-                        <li>
-                            <small><a class="sans-serif" href="/pages/subscribe/">
-                                    SUBSCRIBE</a></small>
-                        </li>
-
-                        <li>
-                            <small><a class="sans-serif" href="/pages/corrections/">
-                                    CORRECTIONS</a></small>
-                        </li>
-
-                        <li>
-                            <small><a class="sans-serif" href="/pages/donate/">
-                                    DONATE</a></small>
-                        </li>
-
-
-                    </ul>
-                </div>
             </div>
-            <div class="divider h-line"></div>
-            <p class="sans-serif text-muted">&copy; 2016 The Chicago Maroon. Designed & built by Euirim Choi '19.</p>
+            <div class="col-sm-3 col-xs-6">
+                <ul class="footer-list">
+                    <li>
+                        <h5 class="topic-header">SECTIONS</h5></li>
+                    <li>
+                        <small><a class="sans-serif" href="/news">NEWS</a></small>
+                    </li>
+                    <li>
+                        <small><a class="sans-serif" href="/viewpoints">VIEWPOINTS</a></small>
+                    </li>
+                    <li>
+                        <small><a class="sans-serif" href="/sports">SPORTS</a></small>
+                    </li>
+                    <li>
+                        <small><a class="sans-serif" href="/arts">ARTS</a></small>
+                    </li>
+                    <li>
+                        <small><a class="sans-serif"
+                                        href="/greycity">GREY CITY</a></small>
+                    </li>
+                    <li>
+                        <small><a class="sans-serif"
+                                        href="/features">FEATURES</a></small>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-sm-3 section-border col-xs-6">
+                <ul class="footer-list">
+
+                    <li>
+                        <h5 class="topic-header">ABOUT</h5></li>
+
+                    <li>
+                        <small><a class="sans-serif"
+                                        href="/pages/staff/">STAFF</a></small>
+                    </li>
+
+                    <li>
+                        <small><a class="sans-serif"
+                                        href="/pages/advertise/">ADVERTISE</a></small>
+                    </li>
+
+                    <li>
+                        <small><a class="sans-serif"
+                                        href="/pages/legal/">LEGAL</a></small>
+                    </li>
+
+                    <li>
+                        <small><a class="sans-serif"
+                                        href="/pages/policies/">POLICIES</a></small>
+                    </li>
+
+
+                </ul>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <ul class="footer-list">
+
+                    <li>
+                        <h5 class="topic-header">CONTACT</h5></li>
+
+                    <li>
+                        <small><a class="sans-serif" href="/pages/apply/">
+                                    APPLY</a></small>
+                    </li>
+
+                    <li>
+                        <small><a class="sans-serif" href="/pages/subissions/">
+                                    SUBMISSIONS</a></small>
+                    </li>
+
+                    <li>
+                        <small><a class="sans-serif" href="/pages/subscribe/">
+                                    SUBSCRIBE</a></small>
+                    </li>
+
+                    <li>
+                        <small><a class="sans-serif" href="/pages/corrections/">
+                                    CORRECTIONS</a></small>
+                    </li>
+
+                    <li>
+                        <small><a class="sans-serif" href="/pages/donate/">
+                                    DONATE</a></small>
+                    </li>
+
+
+                </ul>
+            </div>
         </div>
+        <div class="divider h-line"></div>
+        <p class="sans-serif text-muted">&copy; 2016 The Chicago Maroon. Designed & built by Euirim Choi '19.</p>
+    </div>
     </div>
 
 </body>
