@@ -76,7 +76,7 @@
 
     <script>
         $(document).ready(function() {
-            $('a[href^="#"]').on('click', function(e) {
+            $('a[href^="#"][href*=nav]').on('click', function(e) {
                 e.preventDefault();
                 // var offset = -60;
                 var target = this.hash;
@@ -287,18 +287,18 @@
                     <div id="sidebar" class="hidden-xs">
 
                         <ul>
-                            <li><a href="#intro">Intro</a></li>
-                            <li><a href="#demographics">Demographics</a></li>
-                            <li><a href="#experiences">Experiences</a></li>
-                            <li><a href="#family">Family</a></li>
-                            <li><a href="#applications">Application Process</a></li>
-                            <li><a href="#plans">Plans at UChicago</a></li>
+                            <li><a href="#navintro">Intro</a></li>
+                            <li><a href="#navdemographics">Demographics</a></li>
+                            <li><a href="#navexperiences">Experiences</a></li>
+                            <li><a href="#navfamily">Family</a></li>
+                            <li><a href="#navapplications">Application Process</a></li>
+                            <li><a href="#navplans">Plans at UChicago</a></li>
                         </ul>
                     </div>
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-3 article-content">
                             <!-- <section id="intro"> -->
-                            <section id="intro">
+                            <section id="navintro">
                                 <h2>Intro</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
@@ -307,7 +307,7 @@
                                 </p>
                             </section>
 
-                            <section id="demographics">
+                            <section id="navdemographics">
                                 <h2>Demographics</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
@@ -350,7 +350,7 @@
                             </section>
 
 
-                            <section id="experiences">
+                            <section id="navexperiences">
                                 <h2>Experiences</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
@@ -391,7 +391,7 @@
 
                             </section>
 
-                            <section id="family">
+                            <section id="navfamily">
                                 <h2>Family</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
@@ -404,7 +404,7 @@
                                 <!-- <div id="graph3" style="width:100%; height:400px;"></div> -->
                             </section>
 
-                            <section id="applications">
+                            <section id="navapplications">
                                 <h2>Application Process</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
@@ -445,7 +445,7 @@
 
                             </section>
 
-                            <section id="plans">
+                            <section id="navplans">
                                 <h2>Plans at UChicago</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
