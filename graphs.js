@@ -30,7 +30,7 @@ $(function () {
             type: 'bar'
         },
         title: {
-            text: 'Fruit Consumption'
+            text: 'Apple Consumption'
         },
         xAxis: {
             categories: ['Apples', 'Bananas', 'Oranges']
@@ -41,10 +41,10 @@ $(function () {
             }
         },
         series: [{
-            name: 'Jane',
+            name: 'Apple',
             data: [1, 0, 4]
         }, {
-            name: 'John',
+            name: 'Apple',
             data: [5, 7, 3]
         }]
     });
@@ -82,7 +82,7 @@ $(function () {
             type: 'bar'
         },
         title: {
-            text: 'Fruit Consumption'
+            text: 'Orange Consumption'
         },
         xAxis: {
             categories: ['Apples', 'Bananas', 'Oranges']
