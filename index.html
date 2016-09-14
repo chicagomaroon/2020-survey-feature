@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7250934/7584152/css/fonts.css" />
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="highchartstheme.js"></script>
-    <script src="graphs.js"></script>
+    <!-- <script src="graphs.js"></script> -->
 
 
     <meta property="og:url" content="/article/2016/6/2/slug-automatically-generated/" />
@@ -83,7 +83,7 @@
                 var $target = $(target);
 
                 $('html, body').stop().animate({
-                    'scrollTop': $target.offset().top - 45
+                    'scrollTop': $target.offset().top - 45ls
                 }, 900, 'swing', function() {
                     window.location.hash = target;
                 });
@@ -108,6 +108,140 @@
                 };
             });
         });
+    </script>
+
+    <script>
+
+    $(function () {
+        $('#graph1').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Fruit Consumption'
+            },
+            xAxis: {
+                categories: ['Apples', 'Bananas', 'Oranges']
+            },
+            yAxis: {
+                title: {
+                    text: 'Fruit eaten'
+                }
+            },
+            series: [{
+                name: 'Jane',
+                data: [1, 0, 4]
+            }, {
+                name: 'John',
+                data: [5, 7, 3]
+            }]
+        });
+    });
+
+    $(function () {
+        $('#graph2').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Apple Consumption'
+            },
+            xAxis: {
+                categories: ['Apples', 'Bananas', 'Oranges']
+            },
+            yAxis: {
+                title: {
+                    text: 'Fruit eaten'
+                }
+            },
+            series: [{
+                name: 'Apple',
+                data: [1, 0, 4]
+            }, {
+                name: 'Apple',
+                data: [5, 7, 3]
+            }]
+        });
+    });
+
+    $(function () {
+        $('#graph3').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Fruit Consumption'
+            },
+            xAxis: {
+                categories: ['Apples', 'Bananas', 'Oranges']
+            },
+            yAxis: {
+                title: {
+                    text: 'Fruit eaten'
+                }
+            },
+            series: [{
+                name: 'Jane',
+                data: [1, 0, 4]
+            }, {
+                name: 'John',
+                data: [5, 7, 3]
+            }]
+        });
+    });
+
+    $(function () {
+        $('#graph4').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Orange Consumption'
+            },
+            xAxis: {
+                categories: ['Apples', 'Bananas', 'Oranges']
+            },
+            yAxis: {
+                title: {
+                    text: 'Fruit eaten'
+                }
+            },
+            series: [{
+                name: 'Jane',
+                data: [1, 0, 4]
+            }, {
+                name: 'John',
+                data: [5, 7, 3]
+            }]
+        });
+    });
+
+    $(function () {
+        $('#graph5').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Fruit Consumption'
+            },
+            xAxis: {
+                categories: ['Apples', 'Bananas', 'Oranges']
+            },
+            yAxis: {
+                title: {
+                    text: 'Fruit eaten'
+                }
+            },
+            series: [{
+                name: 'Jane',
+                data: [1, 0, 4]
+            }, {
+                name: 'John',
+                data: [5, 7, 3]
+            }]
+        });
+    });
+
     </script>
 
     <style>
