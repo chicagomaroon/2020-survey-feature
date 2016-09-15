@@ -45,6 +45,8 @@
 
 <body>
 
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <script>
         $(window).scroll(function() {
             if ($(window).scrollTop() >= 75) {
@@ -84,7 +86,7 @@
                 var $target = $(target);
 
                 $('html, body').stop().animate({
-                    'scrollTop': $target.offset().top - 0
+                    'scrollTop': $target.offset().top - 45
                 }, 900, 'swing', function() {
                     window.location.hash = target;
                 });
@@ -111,7 +113,6 @@
         });
     </script>
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('44', {packages: ['corechart']});
       google.charts.setOnLoadCallback(startup);
@@ -1349,17 +1350,19 @@
       margin-left: 0px;
     }
 
-    /*.article-content {
+    .article-content {
     	padding-left: 100px;
-    }*/
+    }
 
     .column {
       padding-bottom: 10px;
+      padding-right: 7px;
     }
 
     .data {
       width: 100%;
       min-height: 450px;
+      padding-top: 10px;
       padding-bottom: 10px;
     }
 
@@ -1495,7 +1498,7 @@
                     <div class="h-line divider"></div>
                 </div>
                 <div class="page-wrap">
-                    <!-- <div id="sidebar" class="hidden-xs">
+                    <div id="sidebar" class="hidden-xs">
 
                         <ul>
                             <li><a href="#navintro">Intro</a></li>
@@ -1506,11 +1509,11 @@
                             <li><a href="#navapplications">College Application </a></li>
                             <li><a href="#navplans">Plans at UChicago</a></li>
                         </ul>
-                    </div> -->
+                    </div>
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-3 col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-3 article-content">
                             <!-- <section id="intro"> -->
-                            <section id="navintro">
+                            <section id="navintro" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h2>Intro</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
@@ -1519,7 +1522,7 @@
                                 </p>
                             </section>
 
-                            <section id="navdemographics">
+                            <section id="navdemographics" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h2>Demographics</h2>
                                 <p>
                                     There were far more female respondents to this survey than male students. This is likely the result of one of two phenomena. It could be that UChicago had an unusually high number of females matriculate. However, it could also be that females were disproportionately more likely to respond to this survey. Given historical admissions trends, the latter reason is most likely at least partially responsible. Interestingly enough, the gender discrepancy is removed when we look at private schools and amplified if we look at public schools. This could indicate that students at UChicago who come from private school have a higher than normal chance of being male.
@@ -1533,45 +1536,47 @@
 
                                 <div class="centered row">
                                 </div>
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                  <div class="column">
+                                <div class="row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="gender()" class="fluid ui basic button">
                                           Gender
                                       </button>
                                   </div>
-                                    <div class="column">
+                                    <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                         <button onclick="pvp_gender()" class="fluid ui basic button">
                                             Gender by School
                                         </button>
                                     </div>
-                                    <div class="column">
+                                    <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                         <button onclick="ethnicity()" class="fluid ui basic button">
                                             Ethnicity
                                         </button>
                                     </div>
-                                    <div class="column">
-                                        <button onclick="orientation()" class="fluid ui basic button">
-                                            Sexual Orientation
-                                        </button>
-                                    </div>
                                 </div>
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="column">
+                                <div class="row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <button onclick="orientation()" class="fluid ui basic button">
+                                          Sexual Orientation
+                                      </button>
+                                  </div>
+                                    <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                         <button onclick="ht_location()" class="fluid ui basic button">
                                             Location
                                         </button>
                                     </div>
-                                    <div class="column">
+                                    <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                         <button onclick="hometown()" class="fluid ui basic button">
                                             Hometown
                                         </button>
                                     </div>
-                                    <div class="column">
-                                        <button onclick="pvp_hometown()" class="fluid ui basic button">
-                                            Hometown by School
-                                        </button>
-                                    </div>
                                 </div>
+                                <div class="row">
+                                <div class="column col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <button onclick="pvp_hometown()" class="fluid ui basic button">
+                                        Hometown by School
+                                    </button>
+                                </div>
+                              </div>
 
                                 <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <h3 id="demo_header" class="header text-center"></h2>
@@ -1585,7 +1590,7 @@
                             </section>
 
 
-                            <section id="navexperiences">
+                            <section id="navexperiences" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h2>Experiences</h2>
                                 <p>
                                     Respondents to the survey tended to not be very religious, with 68.08% saying they were "Not very religious" or "Not religious at all". This was reflected in respondents' religious identifications, as 45.8% of students said they were either Atheist or Agnostic. Respondents were however very liberal, with 73.89%,  almost three-fourths, saying they are somewhat or very liberal. Regarding gap years, students were much more likely to take a gap year if they went to a non-public high school. However, students who are wealthier aren't dramatically more likely to take a gap year; 4.2% of students whose families make over $500,000 took a gap year, versus 9.3% of students who went to private school.
@@ -1596,79 +1601,81 @@
 
                               <div class="centered row">
                               </div>
-                              <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="column">
+                              <div class="row">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="religion()" class="fluid ui basic button">
                                         Religion
                                     </button>
                                 </div>
-                                <div class="column">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="how_religious()" class="fluid ui basic button">
                                         How Religious
                                     </button>
                                 </div>
-                                <div class="column">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="political_spectrum()" class="fluid ui basic button">
                                         Political Spectrum
                                     </button>
                                 </div>
-                                <div class="column">
+                              </div>
+                              <div class="row">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="gap_year_uc()" class="fluid ui basic button">
                                         Gap Year by School
                                     </button>
                                 </div>
-                              </div>
-                              <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="column">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="alcohol()" class="fluid ui basic button">
                                         Alcohol Consumption
                                     </button>
                                 </div>
-                                <div class="column">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="alcohol_uc()" class="fluid ui basic button">
                                         Alcohol at UC
                                     </button>
                                 </div>
-                                <div class="column">
+                              </div>
+                              <div class="row">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="pvp_alcohol()" class="fluid ui basic button">
                                         Alcohol by School
                                     </button>
                                 </div>
-                                <div class="column">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="ht_alcohol()" class="fluid ui basic button">
                                         Alcohol by Hometown
                                     </button>
                                 </div>
-                              </div>
-                              <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="column">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="marijuana()" class="fluid ui basic button">
                                         Marijuana Consumption
                                     </button>
                                 </div>
-                                <div class="column">
+                              </div>
+                              <div class="row">
+                                <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="marijuana_uc()" class="fluid ui basic button">
                                         Marijuana at UC
                                     </button>
                                 </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="fake_id()" class="fluid ui basic button">
                                           Fake ID
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="fake_id_uc()" class="fluid ui basic button">
                                           Fake ID at UC
                                       </button>
                                   </div>
                               </div>
-                              <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="column">
+                              <div class="row">
+                                <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <button onclick="sex()" class="fluid ui basic button">
                                         Sex
                                     </button>
                                 </div>
-                                <div class="column">
+                                <div class="column col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                     <button onclick="sex_uc()" class="fluid ui basic button">
                                         Sex at UC
                                     </button>
@@ -1676,14 +1683,14 @@
 
 
                               <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <h3 id="experiences_header" class="ui header"></h2>
+                                <h3 id="experiences_header" class="ui header text-center"></h2>
                                 <div id="experiences" width="90%" height="300"></div>
                               </div>
 
 
                             </section>
 
-                            <section id="navfamily">
+                            <section id="navfamily" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h2>Family</h2>
                                 <p>
                                     Parents of UChicago students tend to be very highly educated. 87% of fathers and 84.9% of mothers have at least a bachelor's degree. In fact, for 44.5% of students, both their father and mother have graduate degrees. Even more, 62% of students who are legacy have parents who both obtained graduate degrees. UChicago students are also wealthy, with almost half of respondents, 47.6%, reporting that their family makes over $200,000 a year. Legacy students tend to have higher incomes than non-legacies, with almost a third of legacies reporting that their family makes over $500,000 a year. Lastly, most respondents, 50.69%, have just one sibling. The most siblings in the survey was 8.
@@ -1691,35 +1698,35 @@
 
                                 <div class="centered row">
                                 </div>
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                  <div class="column">
+                                <div class="row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="father_education()" class="fluid ui basic button">
                                           Father's Education
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="mother_education()" class="fluid ui basic button">
                                           Mother's Education
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="legacy()" class="fluid ui basic button">
                                           Legacy
                                       </button>
                                   </div>
                                 </div>
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                  <div class="column">
+                                <div class="row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="income()" class="fluid ui basic button">
                                           Income
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="income_legacy()" class="fluid ui basic button">
                                           Income by Legacy
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="siblings()" class="fluid ui basic button">
                                           Siblings
                                       </button>
@@ -1728,13 +1735,13 @@
 
 
                                 <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                  <h3 id="family_header" class="ui header"></h2>
+                                  <h3 id="family_header" class="ui header text-center"></h2>
                                   <div id="family" width="90%" height="300"></div>
                                 </div>
 
                             </section>
 
-                            <section id="navhighschool">
+                            <section id="navhighschool" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h2>High School</h2>
                                 <p>
                                     Almost half of respondents went to a public high school. However, of students who went to a private school, roughly 20% went to a parochial high school. Respondents also tended to not work many hours their senior year, with 89.85% saying they worked less than 10 hours a week. Cheating, however, was fairly prevalent in high school. 42.27% of respondents said they cheated in high school, with 26.5% of those students saying they had cheated on a test in high school. Funnily enough, students having cheated in high school is very correlated to them drinking in high school. Students who drank in high school were almost 62% more likely to cheat in high school than students who haven't drank.
@@ -1742,23 +1749,23 @@
 
                                 <div class="centered row">
                                 </div>
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                  <div class="column">
+                                <div class="row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="school_type()" class="fluid ui basic button">
                                           School Type
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="hs_job()" class="fluid ui basic button">
                                           Job in HS
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="cheating()" class="fluid ui basic button">
                                           Cheating
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                       <button onclick="alcohol_cheating()" class="fluid ui basic button">
                                           Cheating by Alcohol Consumption
                                       </button>
@@ -1772,7 +1779,7 @@
 
                             </section>
 
-                            <section id="navapplications">
+                            <section id="navapplications" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h2>College Application</h2>
                                 <p>
                                     Unsurprisingly, UChicago students took many college level courses in high school. A fourth of respondents said they took more than 10 college level courses while in high school. UChicago students also performed well on the SAT; 34.9% of students reported getting a 2300 or above. However, students who were recruited to play a sport at UChicago on average scored 75 points worse on the SAT than students who weren't athletic recruits. SAT remained relatively constant across gender, but varied slightly more across ethnicity. Underrepresented minorities on average had lower SAT scores than non-underrepresented minorities. The average SAT score for all respondents was 2221. 11% more students reported taking the SAT than the ACT, but both options were popular. Trends with ACT scores were similar to SAT scores.
@@ -1786,68 +1793,68 @@
 
                                 <div class="centered row">
                                 </div>
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                  <div class="column">
+                                <div class="row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="ap_classes()" class="fluid ui basic button">
                                           College Classes
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="sat()" class="fluid ui basic button">
                                           SAT
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="sat_recruit()" class="fluid ui basic button">
                                           SAT by Athlete
                                       </button>
                                   </div>
-                                  <div class="column">
+                                <div class = "row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="sat_ethnicity()" class="fluid ui basic button">
                                           SAT by Ethnicity
                                       </button>
                                   </div>
-                                </div>
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="act()" class="fluid ui basic button">
                                           ACT
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="pvp_counselor()" class="fluid ui basic button">
                                           Counselor by School Type
                                       </button>
                                   </div>
-                                  <div class="column">
+                                </div>
+                                <div class = "row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="income_counselor()" class="fluid ui basic button">
                                           Counselor by Income
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="top_choice()" class="fluid ui basic button">
                                           UC Top Choice
                                       </button>
                                   </div>
-                                </div>
-
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="acceptance_top_choice()" class="fluid ui basic button">
                                           Acceptance Rate by Top Choice
                                       </button>
                                   </div>
-                                  <div class="column">
+                                </div>
+                                <div class = "row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="uc_app()" class="fluid ui basic button">
                                           UC Application
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="number_apps()" class="fluid ui basic button">
                                           Number of Applications by UC App
                                       </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="top_choice_uc_app()" class="fluid ui basic button">
                                           Top Choice by UC App
                                       </button>
@@ -1856,13 +1863,13 @@
 
 
                                 <div class="row col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                  <h3 id="app_header" class="ui header"></h2>
+                                  <h3 id="app_header" class="ui header text-center"></h2>
                                   <div id="application" width="90%" height="300"></div>
                                 </div>
 
                             </section>
 
-                            <section id="navplans">
+                            <section id="navplans" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h2>Plans at UChicago</h2>
                                 <p>
                                     Most students at UChicago weren't recruited, but a lot of them are interested in playing sports. Almost three-fourths of students reported interest in playing club sports at UChicago. Students also showed a heavy interest in newer dorms, as the three newest dorms, Max, South, and North, were the top choice for over three-fourths of students. Almost 10% of students reported being undecided in their major, but students interests roughly match the majors of current undergraduates at the College, especially after factoring for undecided students. 47% of respondents said they were interested in protesting while at UChicago, and most of these students seem to be liberal.
@@ -1874,53 +1881,52 @@
                                 <div class="centered row">
                                 </div>
 
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                  <div class="column">
+                                <div class="row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                         <button onclick="varsity_recruit()" class="fluid ui basic button">
                                             Varsity Recruit
                                         </button>
                                     </div>
-                                    <div class="column">
+                                    <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                         <button onclick="club_sports()" class="fluid ui basic button">
                                             Club Sports
                                         </button>
                                     </div>
-                                    <div class="column">
+                                    <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                         <button onclick="dorm()" class="fluid ui basic button">
                                             Dorm
                                         </button>
                                     </div>
-                                    <div class="column">
+                                  </div>
+                                  <div class = "row">
+                                    <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="major()" class="fluid ui basic button">
                                             Major
                                       </button>
                                     </div>
-                                    <div class="column">
+                                    <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                       <button onclick="protest_political()" class="fluid ui basic button">
                                             Protests by Political Affiliation
                                       </button>
                                     </div>
-                                </div>
-
-
-                                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="greek_life()" class="fluid ui basic button">
                                           Greek Life
                                     </button>
                                   </div>
-                                  <div class="column">
+                                </div>
+                                <div class = "row">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="fin_aid()" class="fluid ui basic button">
                                           Financial Aid
                                     </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="fin_aid_greek()" class="fluid ui basic button">
                                           Finiancial Aid by Greek Life
                                     </button>
                                   </div>
-                                  <div class="column">
+                                  <div class="column col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                     <button onclick="optimism()" class="fluid ui basic button">
                                           Optimism
                                     </button>
