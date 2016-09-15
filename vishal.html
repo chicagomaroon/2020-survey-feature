@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="semantic.css">
+    <title>UChicago Class of 2020 Survey</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('44', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(startup);
+      colors = ["#800000", "#FFC9C9", "#DE7676", "#7A0000", "#FF9999",
+                "#c62323", "#6c2121", "#5c0303", "#F58C8C"];
+      var demo_chart;
+      var experiences_chart;
+      var family_chart;
+      var high_school_chart;
+      var app_chart;
+      var uchicago_chart;
+      var formatter
+      function startup(){
+        demo_chart = new google.visualization.ChartWrapper({
+          containerId: 'demographics'
+        });
+        experiences_chart = new google.visualization.ChartWrapper({
+          containerId: 'experiences'
+        });
+        family_chart = new google.visualization.ChartWrapper({
+          containerId: 'family'
+        });
+        high_school_chart = new google.visualization.ChartWrapper({
+          containerId: 'high_school'
+        })
+        app_chart = new google.visualization.ChartWrapper({
+          containerId: 'application'
+        })
+        uchicago_chart = new google.visualization.ChartWrapper({
+          containerId: 'plans_at_uc'
+        })
+        formatter = new google.visualization.NumberFormat({
+          pattern: '##.##%'
+        });
+        gender();
+        religion();
+        father_education();
+        school_type();
+        ap_classes();
+        varsity_recruit();
+      }
+      function sort_function(a,b){return b[1] - a[1];}
+      function gender() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Gender', 'Count'],
+          ['Female', 374],
+          ['Other', 12],
+          ['Male', 295]
+        ].sort(sort_function));
+        document.getElementById('demo_header').innerHTML = "What is your gender?"
+        var options = {
+            tooltip: {text: "percentage"}, pieSliceText: "none",
+            legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        demo_chart.setChartType('PieChart');
+        demo_chart.setDataTable(data);
+        demo_chart.setOptions(options);
+        demo_chart.draw();
+      }
+      function pvp_gender() {
+        var data = new google.visualization.arrayToDataTable([
+          ['School Type', 'Female', 'Male'],
+          ['Public', .5977, .3851],
+          ['Private', .5032, .4904]
+        ]);
+        formatter.format(data, 1);
+        formatter.format(data, 2);
+        document.getElementById('demo_header').innerHTML = "Gender by School"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.7,
+                min:0
+              }},
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        demo_chart.setChartType('ColumnChart');
+        demo_chart.setDataTable(data);
+        demo_chart.setOptions(options);
+        demo_chart.draw();
+      }
+      function ethnicity() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Ethnicity', 'Count'],
+          ['Asian', 150],
+          ['Black or African American', 45],
+          ['Hispanic or Latino', 82],
+          ["Indian or South Asian", 70],
+          ["Middle Eastern", 10],
+          ["White", 345],
+          ["Other", 7]
+        ].sort(sort_function));
+        document.getElementById('demo_header').innerHTML = "What is your ethnicity?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        demo_chart.setChartType('PieChart');
+        demo_chart.setDataTable(data);
+        demo_chart.setOptions(options);
+        demo_chart.draw();
+      }
+      function orientation() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Orientation', 'Count'],
+          ['Asexual', 16],
+          ['Bisexual', 48],
+          ['Gay or Lesbian', 38],
+          ["Queer", 11],
+          ["Questioning", 28],
+          ["Straight", 527],
+          ["Other", 7],
+          ["Unsure", 4]
+        ].sort(sort_function));
+        document.getElementById('demo_header').innerHTML = "What is your sexual orientation?"
+        var options = {title:'What is your sexual orientation?',
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        demo_chart.setChartType('PieChart');
+        demo_chart.setDataTable(data);
+        demo_chart.setOptions(options);
+        demo_chart.draw();
+      }
+      function ht_location() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Location', 'Count'],
+          ['Mid-Atlantic', 117],
+          ['Midwest', 177],
+          ['New England', 84],
+          ["Outside the United States", 115],
+          ['South', 85],
+          ['Southwest', 17],
+          ['West', 70]
+        ].sort(sort_function));
+        document.getElementById('demo_header').innerHTML = "Where are you from?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        demo_chart.setChartType('PieChart');
+        demo_chart.setDataTable(data);
+        demo_chart.setOptions(options);
+        demo_chart.draw();
+      }
+      function hometown() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Type', 'Count'],
+          ['City', 259],
+          ['Rural', 21],
+          ['Suburbs', 402]
+        ].sort(sort_function));
+        document.getElementById('demo_header').innerHTML = "What kind of area did you grow up in?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        demo_chart.setChartType('PieChart');
+        demo_chart.setDataTable(data);
+        demo_chart.setOptions(options);
+        demo_chart.draw();
+      }
+      function pvp_hometown() {
+        var data = new google.visualization.arrayToDataTable([
+          ['School Type', 'City', 'Rural', 'Surburbs'],
+          ['Public', .2378, .0401, .7221],
+          ['Private', .5256, .0192, .4551]
+        ]);
+        formatter.format(data, 1);
+        formatter.format(data, 2);
+        formatter.format(data, 3);
+        document.getElementById('demo_header').innerHTML = "Hometown Type by School"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.8,
+                min:0
+              }},
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        demo_chart.setChartType('ColumnChart');
+        demo_chart.setDataTable(data);
+        demo_chart.setOptions(options);
+        demo_chart.draw();
+      }
+      function religion() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Religion', 'Count'],
+          ['Agnostic', 138],
+          ['Atheist', 169],
+          ['Buddhist', 11],
+          ['Catholic', 98],
+          ['Hindu', 32],
+          ['Jewish', 73],
+          ['Muslim', 16],
+          ['Protestant', 86],
+          ['Other', 47]
+        ].sort(sort_function));
+        document.getElementById('experiences_header').innerHTML = "What religious identification fits you best?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('PieChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function how_religious() {
+        var data = new google.visualization.arrayToDataTable([
+          ['How Religious', 'Percent of Respondents'],
+          ['Not Religious at All', .4632],
+          ['Not Very Religious', .2176],
+          ['Somewhat Religious', .1676],
+          ['Very Religious', .1103],
+          ['Extremely Religious', .0412]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('experiences_header').innerHTML = "How religious would you say you are?"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.7,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('ColumnChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function political_spectrum() {
+        var data = new google.visualization.arrayToDataTable([
+          ['How Political', 'Percent of Respondents'],
+          ['Very Liberal', .2463],
+          ['Somewhat Liberal', .4926],
+          ['Moderate', .1667],
+          ['Somewhat Conservative', .0900],
+          ['Very Conservative', .0044]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('experiences_header').innerHTML = "Where on the political spectrum would you say you lie?"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.7,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('ColumnChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function alcohol() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Consumed Alcohol', 'Count'],
+          ['No', 256],
+          ['Yes', 416]
+        ].sort(sort_function));
+        document.getElementById('experiences_header').innerHTML = "Have you consumed alcohol recreationally?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('PieChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function pvp_alcohol() {
+        var data = new google.visualization.arrayToDataTable([
+          ['School Type', 'Percent that has consumed alcohol'],
+          ['Public', .5536],
+          ['Private', .6971],
+          ['Other', .55],
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('experiences_header').innerHTML = "Alcohol Consumption by School Type"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.8,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('ColumnChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function ht_alcohol() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Hometown', 'Percent that has consumed alcohol'],
+          ['City', .7059],
+          ['Suburbs', .5707],
+          ['Rural', .4762],
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('experiences_header').innerHTML = "Alcohol Consumption by Hometown"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.8,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('ColumnChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function alcohol_uc() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Consumed Alcohol', 'Count'],
+          ['No', 226],
+          ['Yes', 441]
+        ].sort(sort_function));
+        document.getElementById('experiences_header').innerHTML = "Do you plan on consuming alcohol recreationally while in college?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('PieChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function marijuana() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Used Marijuana', 'Count'],
+          ['No', 495],
+          ['Yes', 180]
+        ].sort(sort_function));
+        document.getElementById('experiences_header').innerHTML = "Have you used marijuana recreationally? "
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('PieChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function marijuana_uc() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Used Marijuana', 'Count'],
+          ['No', 500],
+          ['Yes', 169]
+        ].sort(sort_function));
+        document.getElementById('experiences_header').innerHTML = "Do you plan on consuming marijuana recreationally while in college?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('PieChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function fake_id() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Has Fake', 'Count'],
+          ['No', 608],
+          ['Yes', 66]
+        ].sort(sort_function));
+        document.getElementById('experiences_header').innerHTML = "Do you currently have a fake ID?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('PieChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function fake_id_uc() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Has Fake', 'Count'],
+          ['No', 452],
+          ['Yes', 60],
+          ['Maybe', 158]
+        ].sort(sort_function));
+        document.getElementById('experiences_header').innerHTML = "Do you plan on getting a fake ID during your first year of college?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('PieChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function sex() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Has Sex', 'Count'],
+          ['No', 440],
+          ['Yes', 225]
+        ].sort(sort_function));
+        document.getElementById('experiences_header').innerHTML = "Have you had sex?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('PieChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function sex_uc() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Has Sex', 'Count'],
+          ['No', 143],
+          ['Yes', 513],
+        ]);
+        document.getElementById('experiences_header').innerHTML = "Do you anticipate having sex at any point while in college?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('PieChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function gap_year_uc() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Hometown', 'Percent Who Took Gap Year'],
+          ['Public', .0230],
+          ['Private', .0932],
+          ['Other', .0952],
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('experiences_header').innerHTML = "Taking a Gap Year by School Type"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.2,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        experiences_chart.setChartType('ColumnChart');
+        experiences_chart.setDataTable(data);
+        experiences_chart.setOptions(options);
+        experiences_chart.draw();
+      }
+      function father_education() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Education Level', 'Count'],
+          ['Some high school, no diploma', 14],
+          ['High school graduate, diploma or the equivalent', 28],
+          ['Some college credit, no degree', 23],
+          ['Trade/technical/vocational training', 17],
+          ['Associate degree', 6],
+          ['Bachelor\' degree', 155],
+          ['Graduate degree', 433]
+        ]);
+        document.getElementById('family_header').innerHTML = "What is your father's highest education level?"
+        var options = {
+            tooltip: {text: "percentage"}, pieSliceText: "none",
+            legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        family_chart.setChartType('PieChart');
+        family_chart.setDataTable(data);
+        family_chart.setOptions(options);
+        family_chart.draw();
+      }
+      function mother_education() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Education Level', 'Count'],
+          ['Some high school, no diploma', 10],
+          ['High school graduate, diploma or the equivalent', 27],
+          ['Some college credit, no degree', 22],
+          ['Trade/technical/vocational training', 11],
+          ['Associate degree', 33],
+          ['Bachelor\' degree', 193],
+          ['Graduate degree', 384]
+        ]);
+        document.getElementById('family_header').innerHTML = "What is your mother's highest education level?"
+        var options = {
+            tooltip: {text: "percentage"}, pieSliceText: "none",
+            legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        family_chart.setChartType('PieChart');
+        family_chart.setDataTable(data);
+        family_chart.setOptions(options);
+        family_chart.draw();
+      }
+      function legacy() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Count'],
+          ['Yes, both parents', 20],
+          ['Yes, one parent', 49],
+          ['No', 611]
+        ]);
+        document.getElementById('family_header').innerHTML = "Did either of your parents attend the University of Chicago?"
+        var options = {
+            tooltip: {text: "percentage"}, pieSliceText: "none",
+            legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        family_chart.setChartType('PieChart');
+        family_chart.setDataTable(data);
+        family_chart.setOptions(options);
+        family_chart.draw();
+      }
+      function income() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Income Bracket', 'Percent of Sample in this Bracket'],
+          ['< $15,0000', .0198],
+          ['$15,000 - $30,000', .0362],
+          ['$30,000 - $60,000', .0741],
+          ['$60,000 - $100,000', .1038],
+          ['$100,000 - $150,000', .1483],
+          ['$150,000 - $200,000', .1417],
+          ['$200,000 - $300,000', .1680],
+          ['$300,000 - $500,000', .1516],
+          ['> $500,000', .1565]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('family_header').innerHTML = "Roughly how much did your family earn in the previous year in US dollars?"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.4,
+                min:0
+              }},
+          hAxis : {
+            textStyle : {
+              fontSize: 9 // or the number you want
+            }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        family_chart.setChartType('ColumnChart');
+        family_chart.setDataTable(data);
+        family_chart.setOptions(options);
+        family_chart.draw();
+      }
+      function income_legacy() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Income Bracket', 'Percent of Non-Legacies in this Bracket', 'Percent of Legacies in this Bracket'],
+          ['< $15,0000', .0219, 0],
+          ['$15,000 - $30,000', .0401, 0],
+          ['$30,000 - $60,000', .0785, .0339],
+          ['$60,000 - $100,000', .1131, .0169],
+          ['$100,000 - $150,000', .1478, .1525],
+          ['$150,000 - $200,000', .1460, .1017],
+          ['$200,000 - $300,000', .1752, .1017],
+          ['$300,000 - $500,000', .1387, .2712],
+          ['> $500,000', .1387, .3220]
+        ]);
+        formatter.format(data, 1);
+        formatter.format(data, 2);
+        document.getElementById('family_header').innerHTML = "Percent of Non-Legacies and Legacies in Each Income Bracket"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.4,
+                min:0
+              }},
+          hAxis : {
+            textStyle : {
+              fontSize: 9 // or the number you want
+            }},
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        family_chart.setChartType('ColumnChart');
+        family_chart.setDataTable(data);
+        family_chart.setOptions(options);
+        family_chart.draw();
+      }
+      function siblings() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Percent of Sample'],
+          ['0 Siblings', 0.1335],
+          ['1 Sibling', 0.5089],
+          ['2 Siblings', 0.2700],
+          ['3 Siblings', .0564],
+          ['4 Siblings', .0163],
+          ['4+ Siblings', .0148]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('family_header').innerHTML = "How many siblings do you have?"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.6,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        family_chart.setChartType('ColumnChart');
+        family_chart.setDataTable(data);
+        family_chart.setOptions(options);
+        family_chart.draw();
+      }
+      function school_type() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Count'],
+          ['Public high school', 338],
+          ['Public charter high school', 11],
+          ['Private (parochial) high school', 63],
+          ['Private (non-parochial) high school', 249],
+          ['Other', 21]
+        ]);
+        document.getElementById('high_school_header').innerHTML = "What kind of high school did you attend?"
+        var options = {
+            tooltip: {text: "percentage"}, pieSliceText: "none",
+            legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        high_school_chart.setChartType('PieChart');
+        high_school_chart.setDataTable(data);
+        high_school_chart.setOptions(options);
+        high_school_chart.draw();
+      }
+      function hs_job() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Percent of Sample'],
+          ['0 - 5 hours', 0.7897],
+          ['5.5 - 10 hours', 0.1088],
+          ['10.5 - 15 hours', 0.0338],
+          ['15.5 - 20 hours', .0382],
+          ['20.5 - 30 hours', .0162],
+          ['30.5 - 40 hours', .0103],
+          ['40+ hours', .0029]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('high_school_header').innerHTML = "During your senior year, on average, how many hours per week did you work at a job?"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:1,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        high_school_chart.setChartType('ColumnChart');
+        high_school_chart.setDataTable(data);
+        high_school_chart.setOptions(options);
+        high_school_chart.draw();
+      }
+      function cheating() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Percent of Sample'],
+          ['No, never', 0.5773],
+          ['Yes, on homework', 0.4015],
+          ['Yes, on an exam', 0.1121]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('high_school_header').innerHTML = "Did you ever cheat in high school?"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.8,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        high_school_chart.setChartType('ColumnChart');
+        high_school_chart.setDataTable(data);
+        high_school_chart.setOptions(options);
+        high_school_chart.draw();
+      }
+      function alcohol_cheating() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Students Who Haven\'t Drank Alcohol', 'Students Who Have Drank Alcohol'],
+          ['No, never', .6932, 0.5037],
+          ['Yes, on homework', .2988, 0.4665],
+          ['Yes, on an exam', .0677, 0.1340]
+        ]);
+        formatter.format(data, 1);
+        formatter.format(data, 2);
+        document.getElementById('high_school_header').innerHTML = "Cheating by Alcohol Consumption"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.8,
+                min:0
+              }},
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        high_school_chart.setChartType('ColumnChart');
+        high_school_chart.setDataTable(data);
+        high_school_chart.setOptions(options);
+        high_school_chart.draw();
+      }
+      function ap_classes() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Percent of Sample'],
+          ['0', .0576,],
+          ['1', .0121],
+          ['2', .0121],
+          ['3', .0212],
+          ['4', .0515],
+          ['5', .0788],
+          ['6', .1606],
+          ['7', .0758],
+          ['8', .1030],
+          ['9', .0803],
+          ['10', .0955],
+          ['11', .0788],
+          ['12', .0561],
+          ['13', .0333],
+          ['13+', .0833]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('app_header').innerHTML = "How many college-level (AP/IB) courses did you take while in high school?"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.2,
+                min:0
+              }},
+          hAxis : {
+            textStyle : {
+              fontSize: 11 // or the number you want
+            }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('ColumnChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function sat() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Percent of Sample'],
+          ['< 2000', .0654],
+          ['2000 - 2045', .0436],
+          ['2050 - 2095', .0501],
+          ['2100 - 2145', .0654],
+          ['2150 - 2195', .0959],
+          ['2200 - 2245', .1264],
+          ['2250 - 2295', .2113],
+          ['2300 - 2345', .1830],
+          ['2350 - 2400', .1590]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('app_header').innerHTML = "If you took the SAT, what was your overall score? "
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.25,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('ColumnChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function sat_recruit() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Average SAT Score'],
+          ['Recruited for a varsity sport', 2149],
+          ['Not recruited', 2224],
+        ]);
+        document.getElementById('app_header').innerHTML = "Average SAT Score by Athletic Recruit"
+        var options = {
+          vAxis: {viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:2400,
+                min:2000
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('ColumnChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function sat_ethnicity() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Ethnicity', 'Average SAT Score'],
+          ['Asian', 2277],
+          ['Black or African American', 2129],
+          ['Hispanic or Latino', 2098],
+          ['Indian or South Asian', 2254],
+          ['Middle-Eastern', 2150],
+          ['White', 2226]
+        ]);
+        document.getElementById('app_header').innerHTML = "Average SAT Score by Ethnicity"
+        var options = {
+          hAxis: {viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:2400,
+                min:2000
+              }},
+          vAxis : {
+            textStyle : {
+              fontSize: 9 // or the number you want
+            }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('BarChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function act() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Percent of Sample'],
+          ['< 30', .0291],
+          ['30', .0412],
+          ['31', .0581],
+          ['32', .1259],
+          ['33 ', .1380],
+          ['34', .2978],
+          ['35', .2203],
+          ['36', .0896]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('app_header').innerHTML = "If you took the ACT, what was your overall score? "
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.4,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('ColumnChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function pvp_counselor() {
+        var data = new google.visualization.arrayToDataTable([
+          ['School Type', 'Hired Admissions Counselor'],
+          ['Public School', 0.1404],
+          ['Private School', .21217],
+          ['Other', .05]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('app_header').innerHTML = "Hired Private Admissions Counselor by School Type"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.3,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('ColumnChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function income_counselor() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Income Bracket', 'Hired Private Admissions Counselor'],
+          ['< $15,0000', .0833],
+          ['$15,000 - $30,000', .0909],
+          ['$30,000 - $60,000', .0444],
+          ['$60,000 - $100,000', .1429],
+          ['$100,000 - $150,000', .0899],
+          ['$150,000 - $200,000', .1279],
+          ['$200,000 - $300,000', .1863],
+          ['$300,000 - $500,000', .2527],
+          ['> $500,000', .3226]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('app_header').innerHTML = "Hired Private Admissions Counselor by Income"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.4,
+                min:0
+              }},
+          hAxis : {
+            textStyle : {
+              fontSize: 9 // or the number you want
+            }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('ColumnChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function top_choice() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Hired Admissions Counselor', 'Count'],
+          ['No', 219],
+          ['Yes', 444]
+        ].sort(sort_function));
+        document.getElementById('app_header').innerHTML = "Was UChicago your top choice school?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        app_chart.setChartType('PieChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function acceptance_top_choice() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Average (Number of Schools Accepted to / Number Applied)'],
+          ['UChicago was not my top choice school', .4948],
+          ['UChicago was my top choice school', .6687]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('app_header').innerHTML = "Average Acceptance Rates to Colleges by UC Being Top Choice"
+        var options = {
+          vAxis: {format: 'percent',viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:.8,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('ColumnChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function uc_app() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Applied', 'Count'],
+          ['Applied Early Action, accepted Early Action', 352],
+          ['Applied Early Action, accepted Regular Decision', 135],
+          ['Appleid Regular Decision, accepted Reguar Decision', 191]
+        ]);
+        document.getElementById('app_header').innerHTML = "Did you apply to UChicago Regular Decision or Early Action?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        app_chart.setChartType('PieChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function number_apps() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Average Number of Colleges Applied To'],
+          ['Applied Early Action, accepted Early Action', 6.87],
+          ['Applied Early Action, accepted Regular Decision', 11.52],
+          ['Applied Regular Decision, accepted Regular Decision', 11.57]
+        ]);
+        document.getElementById('app_header').innerHTML = "Number of Applications Sent In"
+        var options = {
+          vAxis: {viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:15,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('ColumnChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function top_choice_uc_app() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Percent Where UChicago was Top Choice'],
+          ['Applied Early Action, accepted Early Action', .7370],
+          ['Applied Early Action, accepted Regular Decision', .7481],
+          ['Applied Regular Decision, accepted Regular Decision', .4835]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('app_header').innerHTML = "UChicago was Top Choice by Type of Application"
+        var options = {
+          vAxis: {format:'percent', viewWindowMode:'explicit',
+                  viewWindow:{
+                    max:1,
+                min:0
+              }},
+          legend:{position: 'none'},colors:colors,width:700,height:300};
+        app_chart.setChartType('ColumnChart');
+        app_chart.setDataTable(data);
+        app_chart.setOptions(options);
+        app_chart.draw();
+      }
+      function varsity_recruit() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Varsity', 'Count'],
+          ['No', 642],
+          ['Yes', 38]
+        ]);
+        document.getElementById('plans_at_uc_header').innerHTML = "Were you recruited to play for a varsity sports team?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        uchicago_chart.setChartType('PieChart');
+        uchicago_chart.setDataTable(data);
+        uchicago_chart.setOptions(options);
+        uchicago_chart.draw();
+      }
+      function club_sports() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Varsity', 'Count'],
+          ['No', 170],
+          ['Yes', 223],
+          ['Maybe', 286]
+        ]);
+        document.getElementById('plans_at_uc_header').innerHTML = "Are you planning on playing any club sports at UChicago?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        uchicago_chart.setChartType('PieChart');
+        uchicago_chart.setDataTable(data);
+        uchicago_chart.setOptions(options);
+        uchicago_chart.draw();
+      }
+      function dorm() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Varsity', 'Count'],
+          ['Burton Judson', 58],
+          ['Campus North',	223],
+          ['International House',	17],
+          ['Max Palevsky',	123],
+          ['Renee Granville-Grossman (South)', 94],
+          ['Snell-Hitchcock',	40],
+          ['Stony Island',	9],
+        ]);
+        document.getElementById('plans_at_uc_header').innerHTML = "Which dorm is your top preference?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        uchicago_chart.setChartType('PieChart');
+        uchicago_chart.setDataTable(data);
+        uchicago_chart.setOptions(options);
+        uchicago_chart.draw();
+      }
+      function major() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Major', 'Class of 2020', 'Undergrads at UChicago'],
+          ['Economics', .1937, .2404],
+          ['Undecided', .0981, 0],
+          ['Biology', .0846, .1037],
+          ['Math', .0838, .1034],
+          ['Other', .0804, 0],
+          ['Political Science', .0795, .0854],
+          ['Computer Science', .0618, .0583],
+          ['Physics', .0609, .0559],
+          ['Public Policy', .0541, .0731],
+          ['English', .0415, .0462],
+          ['Statistics', .0330, .0330],
+          ['History', .0330, .0395],
+          ['Psychology', .0228, .0360],
+          ['Chemistry', .0228, .0333],
+          ['Philosophy', .0178, .0360]
+        ]);
+        formatter.format(data, 1);
+        formatter.format(data, 2);
+        document.getElementById('plans_at_uc_header').innerHTML = "What do you anticipate in majoring in?"
+        var options = {
+          vAxis: {format: 'percent',
+                  viewWindow:{
+                    max:.3,
+                min:0
+              }},
+          hAxis : {
+            textStyle : {
+              fontSize: 9 // or the number you want
+            }},
+          legend:{position: 'none'},format: 'percent',colors:colors,width:700,height:300};
+        uchicago_chart.setChartType('ColumnChart');
+        uchicago_chart.setDataTable(data);
+        uchicago_chart.setOptions(options);
+        uchicago_chart.draw();
+      }
+      function protest_political() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Political Spectrum', 'Percent Participating in Protests'],
+          ['Very Liberal', .7349],
+          ['Somewhat Liberal', .4892],
+          ['Moderate', .2569],
+          ['Somewhat Conservative', .05],
+          ['Very Conservative', 0],
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('plans_at_uc_header').innerHTML = "Do you expect to participate in student protests or other demonstrations while at UChicago?"
+        var options = {
+          vAxis: {format: 'percent',
+                  viewWindow:{
+                    max:1,
+                min:0
+              }},
+          hAxis : {
+            textStyle : {
+              fontSize: 10 // or the number you want
+            }},
+          legend:{position: 'none'},format: 'percent',colors:colors,width:700,height:300};
+        uchicago_chart.setChartType('ColumnChart');
+        uchicago_chart.setDataTable(data);
+        uchicago_chart.setOptions(options);
+        uchicago_chart.draw();
+      }
+      function greek_life() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Count'],
+          ['No', 379],
+          ['Maybe', 225],
+          ['Yes', 77]
+        ]);
+        document.getElementById('plans_at_uc_header').innerHTML = "Do you plan on joining Greek life at UChicago?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        uchicago_chart.setChartType('PieChart');
+        uchicago_chart.setDataTable(data);
+        uchicago_chart.setOptions(options);
+        uchicago_chart.draw();
+      }
+      function fin_aid() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Response', 'Count'],
+          ['No', 352],
+          ['Yes', 326]
+        ]);
+        document.getElementById('plans_at_uc_header').innerHTML = "Will you receive financial aid from UChicago?"
+        var options = {
+          tooltip: {text: "percentage"}, pieSliceText: "none",
+          legend:{position: 'labeled'},colors:colors,width:700,height:300};
+        uchicago_chart.setChartType('PieChart');
+        uchicago_chart.setDataTable(data);
+        uchicago_chart.setOptions(options);
+        uchicago_chart.draw();
+      }
+      function fin_aid_greek() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Joining Greek Life', 'Percent Recieving Financial Aid'],
+          ['No', .5172],
+          ['Maybe', .4484],
+          ['Yes', .2569]
+        ]);
+        formatter.format(data, 1);
+        document.getElementById('plans_at_uc_header').innerHTML = "Recieving Financial Aid by Willingness to Join Greek Life"
+        var options = {
+          vAxis: {format: 'percent',
+                  viewWindow:{
+                    max:.7,
+                min:0
+              }},
+          hAxis : {
+            textStyle : {
+              fontSize: 10 // or the number you want
+            }},
+          legend:{position: 'none'},format: 'percent',colors:colors,width:700,height:300};
+        uchicago_chart.setChartType('ColumnChart');
+        uchicago_chart.setDataTable(data);
+        uchicago_chart.setOptions(options);
+        uchicago_chart.draw();
+      }
+      function optimism() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Optimism', 'Percent in this group'],
+          ['Very Pessimistic', 0.0059],
+          ['', .0251],
+          ['', .1460],
+          ['', .4248],
+          ['Very Optimistic', .3982]
+        ]);
+        document.getElementById('plans_at_uc_header').innerHTML = "How optimistic are you about your future, in college and beyond?"
+        formatter.format(data, 1);
+        var options = {
+          vAxis: {format: 'percent',
+                  viewWindow:{
+                    max:.5,
+                min:0
+              }},
+          hAxis : {
+            textStyle : {
+              fontSize: 13 // or the number you want
+            }},
+          legend:{position: 'none'},format: 'percent',colors:colors,width:700,height:300};
+        uchicago_chart.setChartType('ColumnChart');
+        uchicago_chart.setDataTable(data);
+        uchicago_chart.setOptions(options);
+        uchicago_chart.draw();
+      }
+    </script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+  <div id="canvas-holder" style="width:800px; margin:0 auto;">
+    <div class="ui five column centered grid">
+      <div class="row"></div>
+      <div class="row"></div>
+      <div class="centered row">
+        <div class="ui huge header">Demographics</div>
+      </div>
+      <div class="row">
+        <div class="column">
+            <button onclick="gender()" class="fluid ui basic button">
+                Gender
+            </button>
+        </div>
+          <div class="column">
+              <button onclick="pvp_gender()" class="fluid ui basic button">
+                  Gender by School
+              </button>
+          </div>
+          <div class="column">
+              <button onclick="ethnicity()" class="fluid ui basic button">
+                  Ethnicity
+              </button>
+          </div>
+          <div class="column">
+              <button onclick="orientation()" class="fluid ui basic button">
+                  Sexual Orientation
+              </button>
+          </div>
+      </div>
+      <div class="row">
+          <div class="column">
+              <button onclick="ht_location()" class="fluid ui basic button">
+                  Location
+              </button>
+          </div>
+          <div class="column">
+              <button onclick="hometown()" class="fluid ui basic button">
+                  Hometown
+              </button>
+          </div>
+          <div class="column">
+              <button onclick="pvp_hometown()" class="fluid ui basic button">
+                  Hometown by School
+              </button>
+          </div>
+      </div>
+      <div class="centered row">
+          <h3 id="demo_header" class="ui header"></h2>
+          <div id="demographics" width="700" height="300"></div>
+      </div>
+      <div class="row">
+        <p align="left">
+          There were far more female respondents to this survey than male students. This is likely the result of one of two phenomena. It could be that UChicago had an unusually high number of females matriculate. However, it could also be that females were disproportionately more likely to respond to this survey. Given historical admissions trends, the latter reason is most likely at least partially responsible. Interestingly enough, the gender discrepancy is removed when we look at private schools and amplified if we look at public schools. This could indicate that students at UChicago who come from private school have a higher than normal chance of being male.<br><br>
+          The ethnicities reported are also slightly different than the ethnicities for UChicago's Class of 2019. Of students who responded to this survey, the proportion of students who identify as African American or Hispanic/Latino is several percentage points lower than we would have expected. Additionally, the percentage of students who identify as Indian or Asian is slightly higher than it was in the previous year. However, the percentage of students of each ethnicity varies drastically from year to year at UChicago. For example, the number of students who identify as Asian or Indian rose from 22.25% in the class of 2018 to 26.17% in the class of 2019. Regardless, the ethnicities in this sample are slightly out of line from previous years.<br><br>
+          Regarding where the Class of 2020 is from, nearly a quarter of respondents to the survey are from the Midwest. Historically, a large percentage of this group is from Illinois. 17.3% of students come from outside the Untied States. For the Class of 2019, 13.34% of students said they were international, a jump from 10.64% in the previous year. 17.3% follows along this increase, but is still abnormally high. Another interesting statistic is that students from private schools are over twice as likely to be from the city than students from public school (52.56% vs. 23.78%).
+        </p>
+      </div>
+      <div class="row"></div>
+      <div class="centered row">
+        <div class="ui huge header">Experiences</div>
+      </div>
+      <div class="row">
+        <div class="column">
+            <button onclick="religion()" class="fluid ui basic button">
+                Religion
+            </button>
+        </div>
+        <div class="column">
+            <button onclick="how_religious()" class="fluid ui basic button">
+                How Religious
+            </button>
+        </div>
+        <div class="column">
+            <button onclick="political_spectrum()" class="fluid ui basic button">
+                Political Spectrum
+            </button>
+        </div>
+        <div class="column">
+            <button onclick="gap_year_uc()" class="fluid ui basic button">
+                Gap Year by School
+            </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+            <button onclick="alcohol()" class="fluid ui basic button">
+                Alcohol Consumption
+            </button>
+        </div>
+        <div class="column">
+            <button onclick="alcohol_uc()" class="fluid ui basic button">
+                Alcohol at UC
+            </button>
+        </div>
+        <div class="column">
+            <button onclick="pvp_alcohol()" class="fluid ui basic button">
+                Alcohol by School
+            </button>
+        </div>
+        <div class="column">
+            <button onclick="ht_alcohol()" class="fluid ui basic button">
+                Alcohol by Hometown
+            </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+            <button onclick="marijuana()" class="fluid ui basic button">
+                Marijuana Consumption
+            </button>
+        </div>
+        <div class="column">
+            <button onclick="marijuana_uc()" class="fluid ui basic button">
+                Marijuana at UC
+            </button>
+        </div>
+          <div class="column">
+              <button onclick="fake_id()" class="fluid ui basic button">
+                  Fake ID
+              </button>
+          </div>
+          <div class="column">
+              <button onclick="fake_id_uc()" class="fluid ui basic button">
+                  Fake ID at UC
+              </button>
+          </div>
+      </div>
+      <div class="row">
+        <div class="column">
+            <button onclick="sex()" class="fluid ui basic button">
+                Sex
+            </button>
+        </div>
+        <div class="column">
+            <button onclick="sex_uc()" class="fluid ui basic button">
+                Sex at UC
+            </button>
+        </div>
+      </div>
+      <div class="row"></div>
+      <div class="row">
+        <h3 id="experiences_header" class="ui header"></h2>
+        <div id="experiences" width="700" height="300"></div>
+      </div>
+    <div class="row">
+      <p align="left">
+        Respondents to the survey tended to not be very religious, with 68.08% saying they were "Not very religious" or "Not religious at all". This was reflected in respondents' religious identifications, as 45.8% of students said they were either Atheist or Agnostic. Respondents were however very liberal, with 73.89%,  almost three-fourths, saying they are somewhat or very liberal. Regarding gap years, students were much more likely to take a gap year if they went to a non-public high school. However, students who are wealthier aren't dramatically more likely to take a gap year; 4.2% of students whose families make over $500,000 took a gap year, versus 9.3% of students who went to private school.<br><br>
+        A surprising find in the data is that students who lived in the city were 48% more likely to drink in high school than their rural counterparts. Students who went to private school were 26% more likely to drink than students who went to public school. The percent of students who said they plan to drink at UChicago is only 4.2% higher than the percent of students who said they drank in high school. However, the number is still much lower than the national average. According to the National Institute on Alcohol Abuse and Alcoholism, around 80% of college students drank alcohol in 2012. Surprisingly, the percent of students who plan on using marijuana at UChicago is 1.7% less than the percent of students who reported using marijuana in high school. We would typically assume that students try more illicit substances in college, as there's less supervision and wider access to drugs than in high school. Lastly, 78.2% of students said they anticipated having sex in college, over twice the amount of students who said they had sex in high school.
+      </p>
+    </div>
+    <div class="row"></div>
+    <div class="centered row">
+      <div class="ui huge header">Family</div>
+    </div>
+    <div class="row">
+      <div class="column">
+          <button onclick="father_education()" class="fluid ui basic button">
+              Father's Education
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="mother_education()" class="fluid ui basic button">
+              Mother's Education
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="legacy()" class="fluid ui basic button">
+              Legacy
+          </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+          <button onclick="income()" class="fluid ui basic button">
+              Income
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="income_legacy()" class="fluid ui basic button">
+              Income by Legacy
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="siblings()" class="fluid ui basic button">
+              Siblings
+          </button>
+      </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+      <h3 id="family_header" class="ui header"></h2>
+      <div id="family" width="700" height="300"></div>
+    </div>
+    <div class="row">
+      <p align="left">
+        Parents of UChicago students tend to be very highly educated. 87% of fathers and 84.9% of mothers have at least a bachelor's degree. In fact, for 44.5% of students, both their father and mother have graduate degrees. Even more, 62% of students who are legacy have parents who both obtained graduate degrees. UChicago students are also wealthy, with almost half of respondents, 47.6%, reporting that their family makes over $200,000 a year. Legacy students tend to have higher incomes than non-legacies, with almost a third of legacies reporting that their family makes over $500,000 a year. Lastly, most respondents, 50.69%, have just one sibling. The most siblings in the survey was 8.
+      </p>
+    </div>
+    <div class="row"></div>
+    <div class="centered row">
+      <div class="ui huge header">High School</div>
+    </div>
+    <div class="row">
+      <div class="column">
+          <button onclick="school_type()" class="fluid ui basic button">
+              School Type
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="hs_job()" class="fluid ui basic button">
+              Job in HS
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="cheating()" class="fluid ui basic button">
+              Cheating
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="alcohol_cheating()" class="fluid ui basic button">
+              Cheating by Alcohol Consumption
+          </button>
+      </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+      <h3 id="high_school_header" class="ui header"></h2>
+      <div id="high_school" width="700" height="300"></div>
+    </div>
+    <div class="row">
+      <p align="left">
+        Almost half of respondents went to a public high school. However, of students who went to a private school, roughly 20% went to a parochial high school. Respondents also tended to not work many hours their senior year, with 89.85% saying they worked less than 10 hours a week. Cheating, however, was fairly prevalent in high school. 42.27% of respondents said they cheated in high school, with 26.5% of those students saying they had cheated on a test in high school. Funnily enough, students having cheated in high school is very correlated to them drinking in high school. Students who drank in high school were almost 62% more likely to cheat in high school than students who haven't drank.
+      </p>
+    </div>
+    <div class="row"></div>
+    <div class="centered row">
+      <div class="ui huge header">College Application</div>
+    </div>
+    <div class="row">
+      <div class="column">
+          <button onclick="ap_classes()" class="fluid ui basic button">
+              College Classes
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="sat()" class="fluid ui basic button">
+              SAT
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="sat_recruit()" class="fluid ui basic button">
+              SAT by Athlete
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="sat_ethnicity()" class="fluid ui basic button">
+              SAT by Ethnicity
+          </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+          <button onclick="act()" class="fluid ui basic button">
+              ACT
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="pvp_counselor()" class="fluid ui basic button">
+              Counselor by School Type
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="income_counselor()" class="fluid ui basic button">
+              Counselor by Income
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="top_choice()" class="fluid ui basic button">
+              UC Top Choice
+          </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+          <button onclick="acceptance_top_choice()" class="fluid ui basic button">
+              Acceptance Rate by Top Choice
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="uc_app()" class="fluid ui basic button">
+              UC Application
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="number_apps()" class="fluid ui basic button">
+              Number of Applications by UC App
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="top_choice_uc_app()" class="fluid ui basic button">
+              Top Choice by UC App
+          </button>
+      </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+      <h3 id="app_header" class="ui header"></h2>
+      <div id="application" width="700" height="300"></div>
+    </div>
+    <div class="row">
+      <p align="left">
+        Unsurprisingly, UChicago students took many college level courses in high school. A fourth of respondents said they took more than 10 college level courses while in high school. UChicago students also performed well on the SAT; 34.9% of students reported getting a 2300 or above. However, students who were recruited to play a sport at UChicago on average scored 75 points worse on the SAT than students who weren't athletic recruits. SAT remained relatively constant across gender, but varied slightly more across ethnicity. Underrepresented minorities on average had lower SAT scores than non-underrepresented minorities. The average SAT score for all respondents was 2221. 11% more students reported taking the SAT than the ACT, but both options were popular. Trends with ACT scores were similar to SAT scores.<br><br>
+        Many UChicago students also hired private admissions counselors to help them with their college applications. As students' family income grew, they became more likely to hire an admissions counselor. Almost a third of students whose families earned more than $500,000 a year hired a private counselor. compared to under 10% for students whose families who earned less than $60,000. UChicago was 67% of students top choice, which is coincidentally very similar to UChicago's yield of 66%. Students who said UChicago wasn't their top choice on average applied to 11.2 schools and were accepted to on average 5.5 of those schools. Students who said UChicago was their top choice on average applied to 8.0 schools and were accepted to on avearge 5.2 schools.<br><br>
+        Students who were accepted to UChicago early on average sent 4.9 less applications than students who weren't accepted early, regardless of whether or not those students applied to UChicago. Similarly, students who applied to UChicago early, regardless of whether or not they got in, reported UChicago as their top choice roughly three-fourths of the time, whereas students who applied regular reported UChicago as their top choice only half the time. It seems that getting in to UChicago early doesn't change students perceptions of it, but it does change how many colleges the student applies to.
+      </p>
+    </div>
+    <div class="row"></div>
+    <div class="centered row">
+      <div class="ui huge header">Plans at UC</div>
+    </div>
+    <div class="row">
+      <div class="column">
+          <button onclick="varsity_recruit()" class="fluid ui basic button">
+              Varsity Recruit
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="club_sports()" class="fluid ui basic button">
+              Club Sports
+          </button>
+      </div>
+      <div class="column">
+          <button onclick="dorm()" class="fluid ui basic button">
+              Dorm
+          </button>
+      </div>
+      <div class="column">
+        <button onclick="major()" class="fluid ui basic button">
+              Major
+        </button>
+      </div>
+      <div class="column">
+        <button onclick="protest_political()" class="fluid ui basic button">
+              Protests by Political Affiliation
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <button onclick="greek_life()" class="fluid ui basic button">
+              Greek Life
+        </button>
+      </div>
+      <div class="column">
+        <button onclick="fin_aid()" class="fluid ui basic button">
+              Financial Aid
+        </button>
+      </div>
+      <div class="column">
+        <button onclick="fin_aid_greek()" class="fluid ui basic button">
+              Finiancial Aid by Greek Life
+        </button>
+      </div>
+      <div class="column">
+        <button onclick="optimism()" class="fluid ui basic button">
+              Optimism
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <p align="left">
+        Most students at UChicago weren't recruited, but a lot of them are interested in playing sports. Almost three-fourths of students reported interest in playing club sports at UChicago. Students also showed a heavy interest in newer dorms, as the three newest dorms, Max, South, and North, were the top choice for over three-fourths of students. Almost 10% of students reported being undecided in their major, but students interests roughly match the majors of current undergraduates at the College, especially after factoring for undecided students. 47% of respondents said they were interested in protesting while at UChicago, and most of these students seem to be liberal.<br><br>
+        44.3% of students reported interest in Greek Life. However, 66% of varsity recruits reported interest in Greek Life, with 42% saying they definitely planned on joining Greek Life. Students who indicated interest in Greek Life are also less likely to recieve financial aid. Students who said they are definitely interested in joining Greek Life were half as likely to recieve financial aid as a student who was definitely not interested in joining Greek Life. Lastly, UChicago students were very optimistic about their futures. 82% said they were optimistic about their plans for college and beyond.
+      </p>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+      <h3 id="plans_at_uc_header" class="ui header"></h2>
+      <div id="plans_at_uc" width="700" height="300"></div>
+    </div>
+  </div>
+</body>
+</html>
